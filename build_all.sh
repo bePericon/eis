@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 set -e
-cd ejemplo_banco
+cd caja_de_ahorro
 bundle install
 bundle exec rake
 
