@@ -10,4 +10,14 @@ class Chopper
 		
 		end
 	end
+
+	def sum (array)
+
+		if array.empty?
+
+			'vacio'
+			
+		end
+		
+	end
 end
