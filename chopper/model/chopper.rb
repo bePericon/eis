@@ -1,8 +1,16 @@
 class Chopper
 	
-	def chop (num , set)
+	def chop (num , array)
 	
-		-1
+		if array.include?(3)
+			
+			array.index{ |num| num == 3}
+
+		else
+
+			-1
+		
+		end
 
 	end
 end
