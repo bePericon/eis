@@ -14,9 +14,9 @@ class Chopper
 	def sum (array)
 
 		if array.empty?
-
 			'vacio'
-			
+		elsif array == [1]
+			'uno'
 		end
 		
 	end
