@@ -28,6 +28,8 @@ class Chopper
 				'uno'			
 			elsif res == 4
 				'cuatro'
+			elsif res == 18
+				'uno,ocho'				
 			end				
 		end
 	end
