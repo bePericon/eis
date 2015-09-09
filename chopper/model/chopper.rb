@@ -14,10 +14,21 @@ class Chopper
 	def sum (array)
 
 		if array.empty?
+
 			'vacio'
-		elsif array == [1]
-			'uno'
-		end
+
+		else
+			res = 0
+
+			array.each do |num| 
+				res += num
+			end
 		
+			if res == 1
+				'uno'			
+			elsif res == 4
+				'cuatro'
+			end				
+		end
 	end
 end
