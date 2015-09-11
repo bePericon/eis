@@ -26,7 +26,9 @@ class Chopper
 			elsif res == 18
 				'uno,ocho'
 			elsif res == 100
-				'demasiado grande'										
+				'demasiado grande'
+			elsif res == 99
+				'nueve,nueve'													
 			end				
 		end
 	end
