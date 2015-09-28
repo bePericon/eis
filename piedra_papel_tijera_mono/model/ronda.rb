@@ -17,8 +17,10 @@ class Ronda
   def pelea(jugador1, jugador2)
 
     if reglas(jugador1.jugada).include?(jugador2.jugada)
+      jugador1.gano
       jugador1
     else
+      jugador2.gano
       jugador2
     end
   end  

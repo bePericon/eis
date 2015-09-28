@@ -3,6 +3,7 @@ class Jugador
   def initialize(nombre)
     @nombre = nombre
     @jugada_actual
+    @victorias = 0
   end
   
   def get_nombre
@@ -15,6 +16,14 @@ class Jugador
 
   def jugada
     @jugada_actual
+  end
+
+  def victorias
+    @victorias
+  end
+
+  def gano
+    @victorias += 1
   end
 
 end

@@ -12,4 +12,13 @@ class Partida
   def get_jugador_n2
     @jugador_n2    
   end
+
+  def ganador
+    if @jugador_n1.victorias > @jugador_n2.victorias
+      @jugador_n1
+    else
+      @jugador_n2
+    end
+  end
+
 end
