@@ -17,6 +17,10 @@ class Partida
     @jugador_n2    
   end
 
+  def get_rondas
+    @rondas
+  end
+
   def jugar_ronda(jugada1, jugada2)
     @jugador_n1.jugar(jugada1)
     @jugador_n2.jugar(jugada2)
@@ -27,7 +31,7 @@ class Partida
       ronda.pelea
       @rondas << ronda
     else
-      return 'Partida terminada!'
+      return 'Partida ya terminada!'
     end
 
   end

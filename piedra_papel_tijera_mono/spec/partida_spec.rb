@@ -65,7 +65,7 @@ describe 'Partida' do
   end
 
   it 'Dinamica de una partida: Partida empatada!' do
-    #ronda 1 gana jugador1
+    #ronda 1 empate
     partida.jugar_ronda('tijera', 'tijera')
     #ronda 2 empate
     partida.jugar_ronda('mono', 'piedra')
@@ -73,6 +73,21 @@ describe 'Partida' do
     partida.jugar_ronda('papel', 'papel')
 
     expect(partida.ganador).to eq 'Partida empatada!'
+  end
+
+  it 'Verificacion de partida terminada' do
+    #ronda 1 gana jugador1
+    partida.jugar_ronda('tijera', 'papel')
+    #ronda 2 empate
+    partida.jugar_ronda('mono', 'piedra')
+    #ronda 3 empate
+    partida.jugar_ronda('papel', 'papel')
+
+    #ronda 4 que no deberia jugarse, gana jugador2
+    expect(partida.jugar_ronda('papel', 'tijera')).to eq 'Partida ya terminada!'
+
+    expect(partida.ganador).to eq jugador1
+    expect(partida.get_rondas.length).to eq 3
   end
 
 end
