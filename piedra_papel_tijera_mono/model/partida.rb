@@ -1,8 +1,11 @@
+require_relative 'ronda'
+
 class Partida
 
 	def initialize(j1, j2)
 		@jugador_n1 = j1
 		@jugador_n2 = j2
+    @rondas = []
 	end
 	
 	def get_jugador_n1
@@ -11,6 +14,21 @@ class Partida
 	
   def get_jugador_n2
     @jugador_n2    
+  end
+
+  def jugar_ronda(jugada1, jugada2)
+    @jugador_n1.jugar(jugada1)
+    @jugador_n2.jugar(jugada2)
+
+    ronda = Ronda.new(@jugador_n1, @jugador_n2)
+
+    if @rondas.length < 3
+      ronda.pelea
+      @rondas << ronda
+    else
+      return 'Partida terminada!'
+    end
+
   end
 
   def ganador

@@ -43,14 +43,11 @@ describe 'Partida' do
   it 'Dinamica de una partida: cada jugador tiene una ronda ganada,al
   final el jugador2 gana la tercer ronda, partida ganada por jugador2' do
     #ronda 1 gana jugador2
-    jugador1.jugar('piedra')
-    jugador2.jugar('papel')
+    partida.jugar_ronda('piedra', 'papel')
     #ronda 2 gana jugador1
-    jugador1.jugar('mono')
-    jugador2.jugar('papel')
+    partida.jugar_ronda('mono', 'papel')
     #ronda 3 gana jugador2
-    jugador1.jugar('papel')
-    jugador2.jugar('tijera')
+    partida.jugar_ronda('papel', 'tijera')
 
     expect(partida.ganador).to equal jugador2
   end
