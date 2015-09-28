@@ -7,26 +7,34 @@ class Ronda
     @jugador_n2 = jugador2
   end
 
-  def reglas(jugada)
-    reglas_del_ganador = { 
+  def reglas_ganador(jugada)
+    reglas = { 
       'piedra' => ['tijera'],
       'papel' => ['piedra'],
       'tijera' => ['papel', 'mono'],
       'mono' => ['papel']   
      }
+    reglas[jugada]
+  end
 
-    reglas_del_ganador[jugada]
-
+  def reglas_empate(jugada)
+    reglas = { 
+      'piedra' => ['piedra', 'mono'],
+      'papel' => ['papel'],
+      'tijera' => ['tijera'],
+      'mono' => ['mono', 'piedra']   
+     }
+    reglas[jugada]
   end
 
   def pelea
 
-    if reglas(@jugador_n1.jugada).include?(@jugador_n2.jugada)
+    if reglas_empate(@jugador_n1.jugada).include?(@jugador_n2.jugada)
+      return 'Empate!'
+    elsif reglas_ganador(@jugador_n1.jugada).include?(@jugador_n2.jugada)
       @jugador_n1.gano
-      @jugador_n1
     else
       @jugador_n2.gano
-      @jugador_n2
     end
   end  
   

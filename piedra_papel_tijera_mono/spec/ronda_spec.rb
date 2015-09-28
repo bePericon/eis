@@ -23,4 +23,10 @@ describe 'Ronda' do
     expect(ronda.pelea).to eq jugador1
   end
 
+  it 'Jugar una ronda: jugador1-> papel, jugador2-> papel, empate!' do
+    ronda = Ronda.new(jugador1.jugar('papel'),jugador2.jugar('papel'))
+
+    expect(ronda.pelea).to eq 'Empate!'
+  end
+
 end
