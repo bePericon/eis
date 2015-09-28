@@ -17,4 +17,10 @@ describe 'Ronda' do
     expect(ronda.pelea).to eq jugador2
   end
 
+  it 'Jugar una ronda: jugador1-> tijera, jugador2-> mono, ganador jugador1, devolver jugador1' do
+    ronda = Ronda.new(jugador1.jugar('tijera'),jugador2.jugar('mono'))
+
+    expect(ronda.pelea).to eq jugador1
+  end
+
 end
