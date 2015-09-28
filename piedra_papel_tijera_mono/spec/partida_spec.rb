@@ -64,4 +64,15 @@ describe 'Partida' do
     expect(partida.ganador).to equal jugador1
   end
 
+  it 'Dinamica de una partida: Partida empatada!' do
+    #ronda 1 gana jugador1
+    partida.jugar_ronda('tijera', 'tijera')
+    #ronda 2 empate
+    partida.jugar_ronda('mono', 'piedra')
+    #ronda 3 empate
+    partida.jugar_ronda('papel', 'papel')
+
+    expect(partida.ganador).to eq 'Partida empatada!'
+  end
+
 end

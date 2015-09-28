@@ -1,4 +1,5 @@
 require_relative 'ronda'
+require_relative 'jugador'
 
 class Partida
 
@@ -32,7 +33,9 @@ class Partida
   end
 
   def ganador
-    if @jugador_n1.victorias > @jugador_n2.victorias
+    if @jugador_n1.victorias == @jugador_n2.victorias
+      return 'Partida empatada!'
+    elsif @jugador_n1.victorias > @jugador_n2.victorias
       @jugador_n1
     else
       @jugador_n2
