@@ -2,6 +2,11 @@ require_relative 'jugador'
 
 class Ronda
 
+  def initialize(jugador1, jugador2)
+    @jugador_n1 = jugador1
+    @jugador_n2 = jugador2
+  end
+
   def reglas(jugada)
     reglas_del_ganador = { 
       'piedra' => ['tijera'],
@@ -14,14 +19,14 @@ class Ronda
 
   end
 
-  def pelea(jugador1, jugador2)
+  def pelea
 
-    if reglas(jugador1.jugada).include?(jugador2.jugada)
-      jugador1.gano
-      jugador1
+    if reglas(@jugador_n1.jugada).include?(@jugador_n2.jugada)
+      @jugador_n1.gano
+      @jugador_n1
     else
-      jugador2.gano
-      jugador2
+      @jugador_n2.gano
+      @jugador_n2
     end
   end  
   

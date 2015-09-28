@@ -10,13 +10,11 @@ require_relative '../model/jugador'
 describe 'Ronda' do
   let(:jugador1) { Jugador.new('Emmanuel') }
   let(:jugador2) { Jugador.new('Brian') }
-  let(:ronda) { Ronda.new }
 
   it 'Jugar una ronda: jugador1-> piedra , jugador2-> papel, ganador jugador2, devolver jugador2' do
-    jugador1.jugar('piedra')
-    jugador2.jugar('papel')
+    ronda = Ronda.new(jugador1.jugar('piedra'),jugador2.jugar('papel'))
 
-    expect(ronda.pelea(jugador1, jugador2)).to eq jugador2
+    expect(ronda.pelea).to eq jugador2
   end
 
 end

@@ -12,6 +12,7 @@ class Jugador
 
   def jugar(jugada)
     @jugada_actual = jugada
+    return self
   end
 
   def jugada
