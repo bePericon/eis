@@ -7,4 +7,8 @@ cd ..
 cd chopper
 bundle install
 bundle exec rake
+cd ..
+cd piedra_papel_tijera_mono
+bundle install
+bundle exec rake
 
