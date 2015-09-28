@@ -23,7 +23,10 @@ class Jugador
   end
 
   def gano
-    @victorias += 1
+    if @victorias < 3
+      @victorias += 1
+      return self
+    end  
   end
 
 end
