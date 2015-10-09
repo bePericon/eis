@@ -27,4 +27,12 @@ class BatallaNaval
     return lista
   end
 
+  def elegir_barco(nom)
+    @lista_de_barcos.each do | barco |
+      if barco.su_nombre == nom
+        return barco
+      end
+    end
+  end
+
 end

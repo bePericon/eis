@@ -18,4 +18,11 @@ describe 'BatallaNaval' do
     expect(batallaNaval.lista_de_barcos).to eq [['barco_chico',1],['barco_grande',3]]
   end
 
+  it 'Elegir barco por su nombre' do
+    batallaNaval.agregar_barco(barcoChico)
+    batallaNaval.agregar_barco(barcoGrande)
+
+    expect(batallaNaval.elegir_barco('barco_chico')).to eq barcoChico
+  end
+
 end
