@@ -6,11 +6,15 @@ class Barco
   end
 
   def su_nombre
-    @nombre    
+    return @nombre    
   end
 
   def su_tamanio
-    @tamanio
+    return @tamanio
+  end
+
+  def datos
+    return [@nombre,@tamanio]
   end
   
 end
