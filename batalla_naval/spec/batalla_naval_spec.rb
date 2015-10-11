@@ -34,4 +34,12 @@ describe 'BatallaNaval' do
     expect(batallaNaval.elegir_posicion(barco, 'a3', 'horizontal')).to eq true
   end
 
+  it 'Poner el barco en la posicion libre' do
+    barco = batallaNaval.elegir_barco('navio')
+    batallaNaval.poner_barco(barco, 'a3', 'horizontal')
+    # Al tener el 'navio' un tamaño de 2 ocuparia horizontalmente 'a3' y 'b3'
+    expect(batallaNaval.posicion_ocupada('a3')).to eq true 
+    expect(batallaNaval.posicion_ocupada('b3')).to eq true
+  end
+
 end

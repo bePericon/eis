@@ -48,4 +48,14 @@ class BatallaNaval
 
   end
 
+  def poner_barco(barco, posicion, direccion)
+    tam_de_barco = barco.su_tamanio
+
+    @tablero.ocupa_esta_posicion(tam_de_barco, posicion, direccion)
+  end
+
+  def posicion_ocupada(posicion)
+    @tablero.posicion_ocupada(posicion)    
+  end
+
 end
