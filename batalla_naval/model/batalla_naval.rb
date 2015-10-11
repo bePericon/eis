@@ -1,10 +1,14 @@
 require_relative 'tablero'
+require_relative 'barco'
 
 class BatallaNaval
   
   def initialize
-    @tablero
-    @lista_de_barcos = []    
+    @tablero = Tablero.new(5,5)
+    @lista_de_barcos = []
+
+    barco = Barco.new('navio',2)
+    @lista_de_barcos << barco
   end
 
   def crear_tablero(cantFilas,cantColumnas)
@@ -33,6 +37,14 @@ class BatallaNaval
         return barco
       end
     end
+  end
+
+  def elegir_posicion(posicion, direccion)
+
+    if @tablero.esta_habilitada(posicion) && @tablero.esta_habilitada(direccion)
+      return true
+    end
+
   end
 
 end

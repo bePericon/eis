@@ -8,4 +8,12 @@ describe 'Tablero' do
     expect(tablero.medidas).to eq [10,10] 
   end
 
+  it 'devolucion de indice de letra, empezando la numeracion de 1..n' do
+    expect(tablero.numero_de_letra('f')).to eq 6
+  end
+
+  it 'Verificar si la posicion esta habilitada' do
+    expect(tablero.esta_habilitada('a3')).to eq true
+  end
+
 end
