@@ -39,9 +39,10 @@ class BatallaNaval
     end
   end
 
-  def elegir_posicion(posicion, direccion)
+  def elegir_posicion(barco, posicion, direccion)
+    tam_de_barco = barco.su_tamanio
 
-    if @tablero.esta_habilitada(posicion) && @tablero.esta_habilitada(direccion)
+    if @tablero.estan_habilitadas(tam_de_barco, posicion, direccion)
       return true
     end
 

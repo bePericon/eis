@@ -17,12 +17,33 @@ class Tablero
     return @letras.index(letra) +1
   end
 
-  def esta_habilitada(posicion)
-    pos = posicion
-    caracteres = pos.split(//)
+  def hay_lugar_horizontalmente(tam, pos_en_caracteres, dir)
+    pos = numero_de_letra(pos_en_caracteres[0])
 
-    (numero_de_letra(caracteres[0]) <= @columnas)&&(caracteres[1].to_i <= @filas) ? true : false
-  
+    (dir == 'horizontal')&&((@columnas-pos-tam) >= (-1)) ? true : false
+
+  end
+
+  def hay_lugar_verticalmente(tam, pos_en_caracteres, dir)
+    pos = pos_en_caracteres[1].to_i
+
+    (dir == 'vertical')&&((@filas-pos-tam) >= (-1)) ? true : false
+    
+  end
+
+  def posicion_habilitada(pos_en_caracteres)
+    (numero_de_letra(pos_en_caracteres[0]) <= @columnas)&&(pos_en_caracteres[1].to_i <= @filas) ? true : false
+  end
+
+  def estan_habilitadas(tam_de_barco, posicion, direccion)
+    # Separo la posicion recibida (ej: 'b3') en un array de caracteres (ej: ['b', '3'])
+    pos_en_caracteres = posicion.split(//)
+
+    bool_posicion = posicion_habilitada(pos_en_caracteres)
+
+    bool_direccion = hay_lugar_horizontalmente(tam_de_barco, pos_en_caracteres, direccion) || hay_lugar_verticalmente(tam_de_barco, pos_en_caracteres, direccion)
+
+    return bool_posicion && bool_direccion
   end
 
 end

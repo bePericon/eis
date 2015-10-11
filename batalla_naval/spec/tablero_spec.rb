@@ -12,8 +12,4 @@ describe 'Tablero' do
     expect(tablero.numero_de_letra('f')).to eq 6
   end
 
-  it 'Verificar si la posicion esta habilitada' do
-    expect(tablero.esta_habilitada('a3')).to eq true
-  end
-
 end
