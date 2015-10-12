@@ -14,6 +14,8 @@ class BatallaNaval
     @lista_de_barcos << barco1
     @lista_de_barcos << barco2
     @lista_de_barcos << barco3
+
+    @proximo_disparo
   end
 
   def crear_tablero(cantFilas,cantColumnas)
@@ -63,6 +65,14 @@ class BatallaNaval
 
   def posicion_ocupada(posicion)
     @tablero.posicion_ocupada(posicion)    
+  end
+
+  def elegir_donde_disparar(posicion)
+    @proximo_disparo  = posicion    
+  end
+
+  def proximo_disparo
+    @proximo_disparo
   end
 
 end

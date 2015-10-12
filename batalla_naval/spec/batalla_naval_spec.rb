@@ -62,4 +62,12 @@ describe 'BatallaNaval' do
     expect(batallaNaval.posicion_ocupada('b5')).to eq false
   end
 
+  ########################################################################################
+
+  it 'Elegir posicion donde disparar' do
+    batallaNaval.elegir_donde_disparar('c3')
+
+    expect(batallaNaval.proximo_disparo).to eq 'c3'
+  end
+
 end
