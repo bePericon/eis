@@ -6,10 +6,10 @@ Feature: Ubicar barco
   When elijo la posicion 'a3' vacia
   Then el barco se ubica en esa posicion correctamente
 
-  @wip
+  
   Scenario: No se puede ubicar un barco en una posición ya ocupada
   Given selecciono un barco 'submarino'
-  When elijo la posicion 'b2' que esta ocupada
+  When elijo la posicion 'b3' que esta ocupada
   Then el barco no se pudo ubicar en esa posicion
 
   @wip

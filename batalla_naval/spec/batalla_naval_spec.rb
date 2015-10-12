@@ -29,10 +29,21 @@ describe 'BatallaNaval' do
 
   it 'Poner el barco en la posicion libre' do
     barco = batallaNaval.elegir_barco('crucero')
-    batallaNaval.poner_barco(barco, 'a3', 'horizontal')
+    if batallaNaval.elegir_posicion(barco, 'a3', 'horizontal') #posicion libre == true
+      batallaNaval.poner_barco(barco, 'a3', 'horizontal')
+    end
     # Al tener el 'crucero' un tamaño de 2 ocuparia horizontalmente 'a3' y 'b3'
     expect(batallaNaval.posicion_ocupada('a3')).to eq true 
     expect(batallaNaval.posicion_ocupada('b3')).to eq true
+  end
+
+  it 'Elegir posicion para colocar barco, posicion ocupada' do
+    barco = batallaNaval.elegir_barco('crucero')
+    batallaNaval.poner_barco(barco, 'a3', 'horizontal')
+
+    barco_submarino = batallaNaval.elegir_barco('submarino')
+
+    expect(batallaNaval.elegir_posicion(barco_submarino, 'b3', 'vertical')).to eq false
   end
 
 end
