@@ -70,4 +70,10 @@ describe 'BatallaNaval' do
     expect(batallaNaval.proximo_disparo).to eq 'c3'
   end
 
+  it 'Disparo a una posicion vacia' do
+    batallaNaval.elegir_donde_disparar('c3')
+
+    expect(batallaNaval.disparar).to eq 'Has dado en el AGUA!'
+  end
+
 end

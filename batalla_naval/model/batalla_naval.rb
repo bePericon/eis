@@ -16,6 +16,7 @@ class BatallaNaval
     @lista_de_barcos << barco3
 
     @proximo_disparo
+    @tablero_oponente = Tablero.new(5,5)
   end
 
   def crear_tablero(cantFilas,cantColumnas)
@@ -73,6 +74,14 @@ class BatallaNaval
 
   def proximo_disparo
     @proximo_disparo
+  end
+
+  def disparar
+    if @tablero_oponente.posicion_ocupada(@proximo_disparo)
+      return 'PUM! Has dado en el blanco!'
+    else
+      return 'Has dado en el AGUA!'
+    end
   end
 
 end
