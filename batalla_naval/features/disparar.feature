@@ -7,9 +7,9 @@ Given elijo posicion 'c3' que esta vacia
 When  disparo a posicion elegida 'c3'
 Then  la posicion 'c3' es 'agua'
 
-@wip
+
 Scenario: Disparo y toco un barco pero no lo hundo
-Given elijo posicion 'a3' a donde disparar
+Given elijo posicion 'a3' que esta ocupada
 When  disparo a posicion elegida 'a3'
 Then  hay un barco en esa posicion, recibe daño pero no se hunde
 

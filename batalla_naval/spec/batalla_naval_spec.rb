@@ -71,9 +71,23 @@ describe 'BatallaNaval' do
   end
 
   it 'Disparo a una posicion vacia' do
+    batallaNaval_oponente = BatallaNaval.new
+    batallaNaval.guardar_tablero_enemigo(batallaNaval_oponente.tablero)
+
     batallaNaval.elegir_donde_disparar('c3')
 
     expect(batallaNaval.disparar).to eq 'Has dado en el AGUA!'
+  end
+
+  it 'Poner un barco en el tablero oponente y guardar el tablero en mi juego' do
+    batallaNaval_oponente = BatallaNaval.new
+    barco_oponente = batallaNaval_oponente.elegir_barco('crucero')
+    batallaNaval_oponente.poner_barco(barco_oponente, 'a3', 'horizontal')
+
+    batallaNaval.guardar_tablero_enemigo(batallaNaval_oponente.tablero)
+
+    expect(batallaNaval_oponente.posicion_ocupada('a3')).to eq true
+    expect(batallaNaval_oponente.posicion_ocupada('b3')).to eq true
   end
 
 end

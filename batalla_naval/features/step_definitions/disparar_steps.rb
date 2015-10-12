@@ -6,9 +6,31 @@ Given(/^elijo posicion 'c3' que esta vacia$/) do
 end
 
 When(/^disparo a posicion elegida 'c3'$/) do 
+  @juego_oponente = BatallaNaval.new
+
+  @juego.guardar_tablero_enemigo(@juego_oponente.tablero)
   @resultado_disparo = @juego.disparar
 end
 
 Then(/^la posicion 'c3' es 'agua'$/) do 
   expect(@resultado_disparo).to eq 'Has dado en el AGUA!'
+end
+
+###########################################################################################
+
+Given(/^elijo posicion 'a3' que esta ocupada$/) do
+  @juego_oponente = BatallaNaval.new
+  @barco_oponente = @juego_oponente.elegir_barco('crucero')
+  @juego_oponente.poner_barco(@barco_oponente, 'a3', 'horizontal')
+
+  @juego = BatallaNaval.new
+  @juego.guardar_tablero_enemigo(@juego_oponente.tablero)
+
+  @juego.elegir_donde_disparar('a3')
+end
+
+When(/^disparo a posicion elegida 'a3'$/) do 
+end
+
+Then(/^hay un barco en esa posicion, recibe daño pero no se hunde$/) do
 end
