@@ -8,7 +8,7 @@ class Tablero
               'j','k','l','m','n','ñ','o','p','q',
               'r','s','t','u','v','w','x','y','z']
 
-    @posiciones_ocupadas = []
+    @posiciones_ocupadas = {}
   end
 
   def medidas
@@ -48,29 +48,30 @@ class Tablero
     return bool_posicion && bool_direccion
   end
 
-  def ocupa_esta_posicion(tam_de_barco, posicion, direccion)
+  def ocupa_esta_posicion(barco, posicion, direccion)
+    tam_de_barco = barco.su_tamanio
+
     pos_en_caracteres = posicion.split(//)
     num_caracter_letra = numero_de_letra(pos_en_caracteres[0])
     num_caracter_numero = pos_en_caracteres[1].to_i
     
-    @posiciones_ocupadas << [num_caracter_letra, num_caracter_numero]
+    @posiciones_ocupadas[[num_caracter_letra, num_caracter_numero]] = barco
     
     if direccion == 'horizontal'
       val = 1
       while val <= (tam_de_barco -1)
         x = (num_caracter_letra + val)
-        @posiciones_ocupadas << [x, num_caracter_numero]
+        @posiciones_ocupadas[[x, num_caracter_numero]] = barco
         val += 1
       end
     elsif direccion == 'vertical'
       val = 1
       while val <= (tam_de_barco -1)
         y = (num_caracter_numero + val)
-        @posiciones_ocupadas << [num_caracter_letra, y]
+        @posiciones_ocupadas[[num_caracter_letra, y]] = barco
         val += 1
       end
     end
-
   end
 
   def posicion_ocupada(posicion)
@@ -81,6 +82,19 @@ class Tablero
     p = [num_caracter_letra, num_caracter_numero]
     
     return @posiciones_ocupadas.include?(p)    
+  end
+
+  def buscar_pos_marcar_daño(posicion)
+    pos_en_caracteres = posicion.split(//)
+    num_caracter_letra = numero_de_letra(pos_en_caracteres[0])
+    num_caracter_numero = pos_en_caracteres[1].to_i
+    
+    p = [num_caracter_letra, num_caracter_numero]
+
+    barco = @posiciones_ocupadas[p]
+    barco.marcar_daño
+
+    return barco
   end
 
 end

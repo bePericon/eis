@@ -7,6 +7,7 @@ class Barco
   def initialize(nom, tam)
     @nombre = nom
     @tamanio = tam
+    @danio = 0
   end
 
   def su_nombre
@@ -19,6 +20,22 @@ class Barco
 
   def datos
     return [@nombre,@tamanio]
+  end
+
+  def marcar_daño
+    @danio += 1
+  end
+
+  def su_estado
+    if @tamanio == @danio
+      'KATAPUM! Has hundido un barco!'
+    else
+      'PUM! Has dado en el blanco!'
+    end
+  end
+
+  def hundido?
+    @tamanio == @danio ? 1 : 0
   end
   
 end

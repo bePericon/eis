@@ -90,4 +90,16 @@ describe 'BatallaNaval' do
     expect(batallaNaval_oponente.posicion_ocupada('b3')).to eq true
   end
 
+  it 'Destruir un barco oponente' do
+    batallaNaval_oponente = BatallaNaval.new
+    barco_oponente = batallaNaval_oponente.elegir_barco('submarino')
+    batallaNaval_oponente.poner_barco(barco_oponente, 'b4', 'horizontal')
+
+    batallaNaval.guardar_tablero_enemigo(batallaNaval_oponente.tablero)
+
+    batallaNaval.elegir_donde_disparar('b4')
+
+    expect(batallaNaval.disparar).to eq 'KATAPUM! Has hundido un barco!'
+  end
+
 end

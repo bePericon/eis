@@ -17,6 +17,7 @@ class BatallaNaval
 
     @proximo_disparo
     @tablero_oponente
+    @puntos = 0
   end
 
   def crear_tablero(cantFilas,cantColumnas)
@@ -59,9 +60,7 @@ class BatallaNaval
   end
 
   def poner_barco(barco, posicion, direccion)
-    tam_de_barco = barco.su_tamanio
-
-    @tablero.ocupa_esta_posicion(tam_de_barco, posicion, direccion)
+    @tablero.ocupa_esta_posicion(barco, posicion, direccion)
   end
 
   def posicion_ocupada(posicion)
@@ -78,7 +77,9 @@ class BatallaNaval
 
   def disparar
     if @tablero_oponente.posicion_ocupada(@proximo_disparo)
-      return 'PUM! Has dado en el blanco!'
+      barco = tablero_oponente.buscar_pos_marcar_daño(@proximo_disparo)
+      @puntos += barco.hundido?
+      return barco.su_estado
     else
       return 'Has dado en el AGUA!'
     end

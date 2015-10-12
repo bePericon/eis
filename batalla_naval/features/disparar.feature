@@ -13,7 +13,7 @@ Given elijo posicion 'a3' que esta ocupada
 When  disparo a posicion elegida 'a3'
 Then  hay un barco en esa posicion, recibe daño pero no se hunde
 
-@wip
+
 Scenario: Disparo y toco un barco y lo hundo
 Given elijo posicion 'b4' a donde disparar
 When  disparo a posicion elegida 'b4'

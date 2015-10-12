@@ -1,5 +1,6 @@
 require 'rspec' 
 require_relative '../model/tablero'
+require_relative '../model/barco'
 
 describe 'Tablero' do
   let(:tablero) { Tablero.new(10,10)}
