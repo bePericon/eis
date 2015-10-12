@@ -21,6 +21,7 @@ Given(/^selecciono un barco 'submarino'$/) do
 end
 
 When(/^elijo la posicion 'b3' que esta ocupada$/) do
+  @barco_crucero = @juego.elegir_barco('crucero')
   @estado_posicion_elegida_crucero = @juego.elegir_posicion(@barco_crucero, 'a3', 'horizontal')
   if @estado_posicion_elegida_crucero 
     @juego.poner_barco(@barco_crucero, 'a3', 'horizontal')

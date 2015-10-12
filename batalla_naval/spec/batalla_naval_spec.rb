@@ -46,4 +46,20 @@ describe 'BatallaNaval' do
     expect(batallaNaval.elegir_posicion(barco_submarino, 'b3', 'vertical')).to eq false
   end
 
+  it 'Poner el barco en la posicion ocupada' do
+    barco = batallaNaval.elegir_barco('crucero')
+    batallaNaval.poner_barco(barco, 'a3', 'horizontal')
+
+    barco_destructor = batallaNaval.elegir_barco('destructor')
+    if batallaNaval.elegir_posicion(barco_destructor, 'b3', 'vertical') 
+      batallaNaval.poner_barco(barco_destructor, 'b3', 'vertical')
+    end
+    # Posiciones del barco 'crucero' estan ocupadas
+    expect(batallaNaval.posicion_ocupada('a3')).to eq true 
+    expect(batallaNaval.posicion_ocupada('b3')).to eq true
+    # Posiciones del barco 'destructor' no se ocupan
+    expect(batallaNaval.posicion_ocupada('b4')).to eq false
+    expect(batallaNaval.posicion_ocupada('b5')).to eq false
+  end
+
 end
