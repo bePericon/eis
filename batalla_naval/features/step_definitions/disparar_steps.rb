@@ -30,7 +30,9 @@ Given(/^elijo posicion 'a3' que esta ocupada$/) do
 end
 
 When(/^disparo a posicion elegida 'a3'$/) do 
+  @resultado_disparo = @juego.disparar
 end
 
 Then(/^hay un barco en esa posicion, recibe daño pero no se hunde$/) do
+  expect(@resultado_disparo).to eq 'PUM! Has dado en el blanco!'
 end
