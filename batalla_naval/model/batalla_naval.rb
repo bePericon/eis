@@ -7,8 +7,13 @@ class BatallaNaval
     @tablero = Tablero.new(5,5)
     @lista_de_barcos = []
 
-    barco = Barco.new('navio',2)
-    @lista_de_barcos << barco
+    barco1 = Barco.new('crucero',2)
+    barco2 = Barco.new('destructor',3)
+    barco3 = Barco.new('submarino',1)
+
+    @lista_de_barcos << barco1
+    @lista_de_barcos << barco2
+    @lista_de_barcos << barco3
   end
 
   def crear_tablero(cantFilas,cantColumnas)

@@ -1,3 +1,7 @@
+# destructor: 3 casillas
+# crucero: 2 casillas
+# submarino: 1 casilla
+
 class Barco
 
   def initialize(nom, tam)
