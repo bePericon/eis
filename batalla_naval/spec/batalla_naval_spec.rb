@@ -21,43 +21,27 @@ describe 'BatallaNaval' do
     expect(barco_esperado.datos).to eq crucero.datos
   end
 
-  it 'Elegir posicion para colocar barco, posicion libre' do
-    barco = batallaNaval.elegir_barco('crucero')
-
-    expect(batallaNaval.elegir_posicion(barco, 'a3', 'horizontal')).to eq true
-  end
-
   it 'Poner el barco en la posicion libre' do
     barco = batallaNaval.elegir_barco('crucero')
-    if batallaNaval.elegir_posicion(barco, 'a3', 'horizontal') #posicion libre == true
-      batallaNaval.poner_barco(barco, 'a3', 'horizontal')
-    end
-    # Al tener el 'crucero' un tamaño de 2 ocuparia horizontalmente 'a3' y 'b3'
+    # Al tener el 'crucero' un tama ño de 2 ocuparia horizontalmente 'a3' y 'b3'
+    expect(batallaNaval.poner_barco(barco, 'a3', 'horizontal')).to eq 'Barco ubicado exitosamente!'
     expect(batallaNaval.posicion_ocupada('a3')).to eq true 
     expect(batallaNaval.posicion_ocupada('b3')).to eq true
   end
 
-  it 'Elegir posicion para colocar barco, posicion ocupada' do
+
+  it 'Tratar de poner barco en posicion ocupada, no poder hacerlo' do
     barco = batallaNaval.elegir_barco('crucero')
-    batallaNaval.poner_barco(barco, 'a3', 'horizontal')
-
-    barco_submarino = batallaNaval.elegir_barco('submarino')
-
-    expect(batallaNaval.elegir_posicion(barco_submarino, 'b3', 'vertical')).to eq false
-  end
-
-  it 'Poner el barco en la posicion ocupada' do
-    barco = batallaNaval.elegir_barco('crucero')
-    batallaNaval.poner_barco(barco, 'a3', 'horizontal')
+    resultado_crucero= batallaNaval.poner_barco(barco, 'a3', 'horizontal')
 
     barco_destructor = batallaNaval.elegir_barco('destructor')
-    if batallaNaval.elegir_posicion(barco_destructor, 'b3', 'vertical') 
-      batallaNaval.poner_barco(barco_destructor, 'b3', 'vertical')
-    end
+    resultado_destructor = batallaNaval.poner_barco(barco_destructor, 'b3', 'vertical')
     # Posiciones del barco 'crucero' estan ocupadas
+    expect(resultado_crucero).to eq 'Barco ubicado exitosamente!'
     expect(batallaNaval.posicion_ocupada('a3')).to eq true 
     expect(batallaNaval.posicion_ocupada('b3')).to eq true
     # Posiciones del barco 'destructor' no se ocupan
+    expect(resultado_destructor).to eq 'Posicion ocupada!'
     expect(batallaNaval.posicion_ocupada('b4')).to eq false
     expect(batallaNaval.posicion_ocupada('b5')).to eq false
   end

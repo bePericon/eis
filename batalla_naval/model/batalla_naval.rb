@@ -48,19 +48,18 @@ class BatallaNaval
     end
   end
 
-  def elegir_posicion(barco, posicion, direccion)
-    tam_de_barco = barco.su_tamanio
-
-    if @tablero.posicion_ocupada(posicion)
-      return false
-    elsif @tablero.estan_habilitadas(tam_de_barco, posicion, direccion)
-      return true
-    end
-
-  end
-
   def poner_barco(barco, posicion, direccion)
-    @tablero.ocupa_esta_posicion(barco, posicion, direccion)
+    tam_de_barco = barco.su_tamanio
+    if @tablero.estan_habilitadas(tam_de_barco, posicion, direccion)
+      if @tablero.posicion_ocupada(posicion)
+        return 'Posicion ocupada!'
+      else
+        @tablero.ocupa_esta_posicion(barco, posicion, direccion)
+        return 'Barco ubicado exitosamente!'
+      end
+    else
+      return 'Posicion FUERA DE TABLERO!'
+    end
   end
 
   def posicion_ocupada(posicion)
