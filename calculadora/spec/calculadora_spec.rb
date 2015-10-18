@@ -25,4 +25,22 @@ describe 'Calculadora' do
   it 'Revisando la memoria, no se hizo ninguna operacion, resultado 0' do
     expect(calculadora.memoria).to eq 0
   end
+
+  it 'Revisando la memoria, se hacen dos operaciones, resultado 2' do
+    rs = calculadora.sumar(2,2)
+    rr = calculadora.restar(10,5)
+
+    expect(calculadora.memoria).to eq 2
+  end
+
+  #############################################################################
+
+  it 'Revisando la memoria, se hacen dos operaciones, reseteo la memoria por ende el resultado es 0' do
+    rs = calculadora.sumar(2,2)
+    rr = calculadora.restar(10,5)
+
+    calculadora.resetear_memoria
+
+    expect(calculadora.memoria).to eq 0
+  end
 end

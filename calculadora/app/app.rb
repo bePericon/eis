@@ -6,6 +6,8 @@ module Ejemplo
     register Padrino::Helpers
     
     enable :sessions
+
+    CALCULADORA = Calculadora.new
     
     get 'hola' do
       'hey! hola , esto va a ser una calculadora!'
@@ -29,51 +31,56 @@ module Ejemplo
 
 
     post 'suma' do
-      cal = Calculadora.new
 
       session[:primer_operando] = params[:primer_operando]
       session[:segundo_operando] = params[:segundo_operando]
       @primer_operando = session[:primer_operando]
       @segundo_operando = session[:segundo_operando]
 
-      @resultado = cal.sumar(@primer_operando.to_i, @segundo_operando.to_i)
+      @resultado = CALCULADORA.sumar(@primer_operando.to_i, @segundo_operando.to_i)
+      @operaciones_realizadas = CALCULADORA.memoria
       render 'calculadora_suma'
     end
 
     post 'resta' do
-      cal = Calculadora.new
 
       session[:primer_operando] = params[:primer_operando]
       session[:segundo_operando] = params[:segundo_operando]
       @primer_operando = session[:primer_operando]
       @segundo_operando = session[:segundo_operando]
 
-      @resultado = cal.restar(@primer_operando.to_i, @segundo_operando.to_i)
+      @resultado = CALCULADORA.restar(@primer_operando.to_i, @segundo_operando.to_i)
+      @operaciones_realizadas = CALCULADORA.memoria
       render 'calculadora_resta'
     end
 
     post 'multiplicacion' do
-      cal = Calculadora.new
 
       session[:primer_operando] = params[:primer_operando]
       session[:segundo_operando] = params[:segundo_operando]
       @primer_operando = session[:primer_operando]
       @segundo_operando = session[:segundo_operando]
 
-      @resultado = cal.multiplicar(@primer_operando.to_i, @segundo_operando.to_i)
+      @resultado = CALCULADORA.multiplicar(@primer_operando.to_i, @segundo_operando.to_i)
+      @operaciones_realizadas = CALCULADORA.memoria
       render 'calculadora_multiplicacion'
     end
 
     post 'division' do
-      cal = Calculadora.new
 
       session[:primer_operando] = params[:primer_operando]
       session[:segundo_operando] = params[:segundo_operando]
       @primer_operando = session[:primer_operando]
       @segundo_operando = session[:segundo_operando]
 
-      @resultado = cal.dividir(@primer_operando.to_i, @segundo_operando.to_i)
+      @resultado = CALCULADORA.dividir(@primer_operando.to_i, @segundo_operando.to_i)
+      @operaciones_realizadas = CALCULADORA.memoria
       render 'calculadora_division'
+    end
+
+    post 'resetear' do
+      CALCULADORA.resetear_memoria
+      render 'calculadora_suma'
     end
 
   end

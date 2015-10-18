@@ -18,3 +18,10 @@ end
 Given(/^hago una resta$/) do
   @res_resta = @calculadora.restar(10,5)
 end
+
+#############################################################################
+
+Given(/^reseteo la memoria$/) do
+  @calculadora.resetear_memoria
+end
+

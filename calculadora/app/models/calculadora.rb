@@ -27,5 +27,9 @@ class Calculadora
   def memoria
     @operaciones_realizadas
   end
+
+  def resetear_memoria
+    @operaciones_realizadas = 0    
+  end
   
 end
