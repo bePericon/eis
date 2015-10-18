@@ -5,7 +5,16 @@ Given(/^no hice operaciones$/) do
 end
 
 Then(/^la cantidad de operaiones es (\d+)$/) do |arg1|
-  expect(@calculadora.memoria.length).to eq 0
+  expect(@calculadora.memoria).to eq arg1.to_i
 end
 
 #############################################################################
+
+Given(/^hago una suma$/) do
+  @calculadora = Calculadora.new
+  @res_suma = @calculadora.sumar(2,2)
+end
+
+Given(/^hago una resta$/) do
+  @res_resta = @calculadora.restar(10,5)
+end

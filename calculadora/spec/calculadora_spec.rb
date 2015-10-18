@@ -23,6 +23,6 @@ describe 'Calculadora' do
 #############################################################################
 
   it 'Revisando la memoria, no se hizo ninguna operacion, resultado 0' do
-    expect(calculadora.memoria.length).to eq 0
+    expect(calculadora.memoria).to eq 0
   end
 end
