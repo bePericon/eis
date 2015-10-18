@@ -12,6 +12,12 @@ Feature: Operaciones basicas
     When resto el primero operando por el segundo
     Then el resultado es 1
 
+  Scenario: promedio
+    Given un operando es 6
+    And otro operando es 8
+    When saco el promedio entre ellos
+    Then el resultado es 7
+
   Scenario: multiplicacion
     Given un primer operando que es 2
     And un segundo operando que es 2

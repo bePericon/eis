@@ -14,6 +14,11 @@ class Calculadora
     return op1-op2
   end
 
+  def promedio(op1,op2)
+    @operaciones_realizadas += 1
+    return dividir(sumar(op1,op2), 2) 
+  end
+
   def multiplicar(op1, op2) 
     @operaciones_realizadas += 1   
     return op1*op2

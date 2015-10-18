@@ -21,6 +21,10 @@ module Ejemplo
       render 'calculadora_resta'
     end
 
+    get 'promedio' do
+      render 'calculadora_promedio'
+    end
+
     get 'multiplicacion' do
       render 'calculadora_multiplicacion'
     end
@@ -52,6 +56,18 @@ module Ejemplo
       @resultado = CALCULADORA.restar(@primer_operando.to_i, @segundo_operando.to_i)
       @operaciones_realizadas = CALCULADORA.memoria
       render 'calculadora_resta'
+    end
+
+    post 'promedio' do
+
+      session[:primer_operando] = params[:primer_operando]
+      session[:segundo_operando] = params[:segundo_operando]
+      @primer_operando = session[:primer_operando]
+      @segundo_operando = session[:segundo_operando]
+
+      @resultado = CALCULADORA.promedio(@primer_operando.to_i, @segundo_operando.to_i)
+      @operaciones_realizadas = CALCULADORA.memoria
+      render 'calculadora_promedio'
     end
 
     post 'multiplicacion' do

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+      <title> Calculadora </title>
+  </head>
+  <body>
+    <form method="POST" action="promedio">
+      <%= csrf_token_field %>
+      <label>Promedio:</label> </br>
+        <input id="primer_operando" type="text" name="primer_operando"> </br>
+        <input id="segundo_operando" type="text" name="segundo_operando">
+      <input type="submit" value="Calcular" id="calcular"/>
+    </form>
+    Resultado es:  <%= @resultado %> </br>
+
+    Memoria
+    Cantidad de operaciones realizadas: <%= @operaciones_realizadas %> </br>
+  </body>
+</html>

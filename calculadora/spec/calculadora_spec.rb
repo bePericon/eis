@@ -12,6 +12,10 @@ describe 'Calculadora' do
     expect(calculadora.restar(2,1)).to eq 1
   end
 
+  it 'Calculo de promedio, operando 6 promediado con operando 8 es igual a 7' do
+    expect(calculadora.promedio(6,8)).to eq 7
+  end
+
   it 'Calculo de multiplicacion, operando 2 multiplicado por operando 2 es igual a 4' do
     expect(calculadora.multiplicar(2,2)).to eq 4
   end

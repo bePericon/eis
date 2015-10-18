@@ -1,67 +1,52 @@
 require_relative '../../app/models/calculadora.rb'
 
-Given(/^un operando es 1$/) do 
+Given(/^un operando es (\d+)$/) do |op1|
   @calculadora = Calculadora.new
-  @primer_operando = 1
+  @primer_operando = op1.to_i
 end
 
-Given(/^otro operando es 2$/) do
-  @segundo_operando = 2
+Given(/^otro operando es (\d+)$/) do |op2|
+  @segundo_operando = op2.to_i
 end
 
 When(/^los sumo$/) do
   @resultado = @calculadora.sumar(@primer_operando, @segundo_operando)
 end
 
-Then(/^el resultado es 3$/) do
-  expect(@resultado).to eq 3
+Then(/^el resultado es (\d+)$/) do |res|
+  expect(@resultado).to eq res.to_i
 end
 
 #############################################################################
 
-Given(/^un primer operando que es 2$/) do
+Given(/^un primer operando que es (\d+)$/) do |op1|
   @calculadora = Calculadora.new
-  @primer_operando = 2
+  @primer_operando = op1.to_i
 end
 
-Given(/^un segundo operando que es 1$/) do
-  @segundo_operando = 1
+Given(/^un segundo operando que es (\d+)$/) do |op2|
+  @segundo_operando = op2.to_i
 end
 
 When(/^resto el primero operando por el segundo$/) do
   @resultado = @calculadora.restar(@primer_operando, @segundo_operando)
 end
 
-Then(/^el resultado es 1$/) do 
-  expect(@resultado).to eq 1
+#############################################################################
+
+When(/^saco el promedio entre ellos$/) do
+  @resultado = @calculadora.promedio(6,8)
 end
 
 #############################################################################
-
-Given(/^un segundo operando que es 2$/) do
-  @segundo_operando = 2
-end
 
 When(/^los multiplico entre si$/) do
   @resultado = @calculadora.multiplicar(@primer_operando,@segundo_operando)
 end
 
-Then(/^el resultado es 4$/) do
-  expect(@resultado).to eq 4
-end
-
 #############################################################################
-
-Given(/^un primer operando que es 4$/) do
-  @calculadora = Calculadora.new
-  @primer_operando = 4
-end
 
 When(/^divido el primer operando por el segundo$/) do
   @resultado = @calculadora.dividir(@primer_operando, @segundo_operando)
-end
-
-Then(/^el resultado es 2$/) do 
-  expect(@resultado).to eq 2
 end
 
