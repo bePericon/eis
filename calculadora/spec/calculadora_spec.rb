@@ -8,4 +8,8 @@ describe 'Calculadora' do
     expect(calculadora.sumar(1,2)).to eq 3
   end
 
+  it 'Calculo de resta, operando 2 menos operando 1 es igual a 1' do
+    expect(calculadora.restar(2,1)).to eq 1
+  end
+
 end
