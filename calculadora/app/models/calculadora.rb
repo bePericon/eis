@@ -1,8 +1,7 @@
 class Calculadora
 
   def initialize
-    @primer_operando = 0
-    @segundo_operando = 0
+    @operaciones_realizadas = []
   end
   
   def sumar(op1, op2)
@@ -19,6 +18,10 @@ class Calculadora
 
   def dividir(op1, op2)    
     return op1/op2
+  end
+
+  def memoria
+    @operaciones_realizadas
   end
   
 end

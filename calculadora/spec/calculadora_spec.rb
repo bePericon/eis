@@ -19,4 +19,10 @@ describe 'Calculadora' do
   it 'Calculo de division, operando 4 dividido por operando 2 es igual a 2' do
     expect(calculadora.dividir(4,2)).to eq 2
   end
+
+#############################################################################
+
+  it 'Revisando la memoria, no se hizo ninguna operacion, resultado 0' do
+    expect(calculadora.memoria.length).to eq 0
+  end
 end
