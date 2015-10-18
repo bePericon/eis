@@ -36,3 +36,18 @@ Then(/^el resultado es 1$/) do
   expect(@resultado).to eq 1
 end
 
+#############################################################################
+
+Given(/^un segundo operando que es 2$/) do
+  @segundo_operando = 2
+end
+
+When(/^los multiplico entre si$/) do
+  @resultado = @calculadora.multiplicar(@primer_operando,@segundo_operando)
+end
+
+Then(/^el resultado es 4$/) do
+  expect(@resultado).to eq 4
+end
+
+

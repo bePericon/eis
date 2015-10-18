@@ -12,4 +12,8 @@ describe 'Calculadora' do
     expect(calculadora.restar(2,1)).to eq 1
   end
 
+  it 'Calculo de multiplicacion, operando 2 multiplicado por operando 2 es igual a 4' do
+    expect(calculadora.multiplicar(2,2)).to eq 4
+  end
+
 end

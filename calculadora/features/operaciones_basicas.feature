@@ -11,7 +11,7 @@ Feature: Operaciones basicas
     And un segundo operando que es 1
     When resto el primero operando por el segundo
     Then el resultado es 1
-  @wip
+
   Scenario: multiplicacion
     Given un primer operando que es 2
     And un segundo operando que es 2
