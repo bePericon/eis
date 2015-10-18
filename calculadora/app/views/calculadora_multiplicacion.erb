@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+      <title> Calculadora </title>
+  </head>
+  <body>
+    <form method="POST" action="multiplicacion">
+      <%= csrf_token_field %>
+      <label>Multiplicar:</label>
+        <input id="primer_operando" type="text" name="primer_operando">
+      <label>*</label>
+        <input id="segundo_operando" type="text" name="segundo_operando">
+      <input type="submit" value="Calcular" id="calcular"/>
+    </form>
+    Resultado es:  <%= @resultado %>
+  </body>
+</html>

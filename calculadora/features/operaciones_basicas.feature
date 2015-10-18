@@ -17,7 +17,7 @@ Feature: Operaciones basicas
     And un segundo operando que es 2
     When los multiplico entre si
     Then el resultado es 4
-  @wip
+
   Scenario: division
     Given un primer operando que es 4
     And un segundo operando que es 2

@@ -6,24 +6,19 @@ class Calculadora
   end
   
   def sumar(op1, op2)
-    @primer_operando = op1
-    @segundo_operando = op2
-
-    return @primer_operando+@segundo_operando
+    return op1+op2
   end
 
   def restar(op1, op2)
-    @primer_operando = op1
-    @segundo_operando = op2
-
-    return @primer_operando-@segundo_operando
+    return op1-op2
   end
 
-  def multiplicar(op1, op2)
-    @primer_operando = op1
-    @segundo_operando = op2
-    
-    return @primer_operando*@segundo_operando
+  def multiplicar(op1, op2)    
+    return op1*op2
+  end
+
+  def dividir(op1, op2)    
+    return op1/op2
   end
   
 end

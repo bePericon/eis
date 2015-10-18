@@ -16,4 +16,7 @@ describe 'Calculadora' do
     expect(calculadora.multiplicar(2,2)).to eq 4
   end
 
+  it 'Calculo de division, operando 4 dividido por operando 2 es igual a 2' do
+    expect(calculadora.dividir(4,2)).to eq 2
+  end
 end

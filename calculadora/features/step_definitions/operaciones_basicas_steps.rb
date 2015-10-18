@@ -50,4 +50,18 @@ Then(/^el resultado es 4$/) do
   expect(@resultado).to eq 4
 end
 
+#############################################################################
+
+Given(/^un primer operando que es 4$/) do
+  @calculadora = Calculadora.new
+  @primer_operando = 4
+end
+
+When(/^divido el primer operando por el segundo$/) do
+  @resultado = @calculadora.dividir(@primer_operando, @segundo_operando)
+end
+
+Then(/^el resultado es 2$/) do 
+  expect(@resultado).to eq 2
+end
 
