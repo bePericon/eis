@@ -8,6 +8,10 @@ module Ejemplo
     enable :sessions
 
     CALCULADORA = Calculadora.new
+
+    get '/' do
+      render 'calculadora'
+    end
     
     get 'hola' do
       'hey! hola , esto va a ser una calculadora!'
@@ -94,10 +98,12 @@ module Ejemplo
       render 'calculadora_division'
     end
 
-    post 'resetear' do
-      CALCULADORA.resetear_memoria
-      render 'calculadora_suma'
-    end
+    #get 'resetear/:name' do
+    #  CALCULADORA.resetear_memoria
+    #  if ("#{params[:name]}" == "suma")
+    #    render 'calculadora_suma'
+    #  end
+    #end
 
   end
 end
