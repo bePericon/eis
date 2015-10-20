@@ -1,3 +1,5 @@
+
+=begin
 require_relative '../../app/models/calculadora.rb'
 
 Given(/^no hice operaciones$/) do
@@ -24,4 +26,4 @@ end
 Given(/^reseteo la memoria$/) do
   @calculadora.resetear_memoria
 end
-
+=end
