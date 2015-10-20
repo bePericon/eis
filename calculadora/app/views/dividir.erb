@@ -5,20 +5,25 @@
       <title> Calculadora </title>
   </head>
   <body>
-    <form method="POST" action="suma">
+    <form method="POST" action="dividir">
       <%= csrf_token_field %>
-      <label>Sumar:</label>
+      <label>Dividir:</label>
         <input id="primer_operando" type="text" name="primer_operando">
-      <label>+</label>
+      <label>/</label>
         <input id="segundo_operando" type="text" name="segundo_operando">
       <input type="submit" value="Calcular" id="calcular"/>
     </form>
-    Resultado es:  <%= @resultado %> </br>
+    Resultado es:  <%= @resultado %></br>
 
     Memoria </br>
     Cantidad de operaciones realizadas: <%= @operaciones_realizadas %> </br>
-      <!-- <form method="GET" action="resetear/suma">
+      <form method="GET" action="resetear/sumar">
+        <!--<%= csrf_token_field %>-->
         <input type="submit" value="Resetear memoria" id="resetear"/>
-      </form>-->
+      </form></br>
+      <form method="GET" action="/">
+        <!--<%= csrf_token_field %>-->
+        <input type="submit" value="Pagina principal" id="inicio"/>
+      </form>
   </body>
 </html>

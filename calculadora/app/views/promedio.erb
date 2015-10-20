@@ -16,5 +16,13 @@
 
     Memoria </br>
     Cantidad de operaciones realizadas: <%= @operaciones_realizadas %> </br>
+      <form method="GET" action="resetear/sumar">
+        <!--<%= csrf_token_field %>-->
+        <input type="submit" value="Resetear memoria" id="resetear"/>
+      </form></br>
+      <form method="GET" action="/">
+        <!--<%= csrf_token_field %>-->
+        <input type="submit" value="Pagina principal" id="inicio"/>
+      </form>
   </body>
 </html>
