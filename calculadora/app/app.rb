@@ -18,6 +18,7 @@ module Ejemplo
     end
 
     get ':operacion' do
+      @operaciones_realizadas = CALCULADORA.memoria
       render "#{params[:operacion]}"
     end
 
