@@ -10,7 +10,6 @@ Feature: memoria de cantidad de operaciones
     Given voy a la pagina de la calculadora
     And selecciono la operacion sumar
     And hago una suma
-    And vuelvo atras
     And selecciono la operacion restar
     And hago una resta
     Then la cantidad de operaciones es 2
@@ -19,7 +18,6 @@ Feature: memoria de cantidad de operaciones
     Given voy a la pagina de la calculadora
     And selecciono la operacion sumar
     And hago una suma
-    And vuelvo atras
     And selecciono la operacion restar
     And hago una resta
     And reseteo la memoria

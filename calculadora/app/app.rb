@@ -10,27 +10,23 @@ module Ejemplo
     CALCULADORA = Calculadora.new
 
     get '/' do
-      render 'calculadora'
+      @operaciones_realizadas = CALCULADORA.memoria
+      render 'operacion'
     end
     
     get 'hola' do
       'hey! hola , esto va a ser una calculadora!'
     end
 
-    get ':operacion' do
+    post '/' do
+      @resultado = CALCULADORA.send(params[:operacion], params[:primer_operando].to_i, params[:segundo_operando].to_i)
       @operaciones_realizadas = CALCULADORA.memoria
-      render "#{params[:operacion]}"
+      render 'operacion'
     end
 
-    post ':operacion' do
-      @resultado = CALCULADORA.send("#{params[:operacion]}", params[:primer_operando].to_i, params[:segundo_operando].to_i)
-      @operaciones_realizadas = CALCULADORA.memoria
-      render "#{params[:operacion]}"
-    end
-
-    get 'resetear/:operacion' do
+    get 'resetear' do
       CALCULADORA.resetear_memoria
-      redirect_to "#{params[:operacion]}"
+      redirect_to "/"
     end
 
   end

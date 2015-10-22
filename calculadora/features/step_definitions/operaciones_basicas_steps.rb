@@ -5,7 +5,7 @@ Given(/^voy a la pagina de la calculadora$/) do
 end
 
 Given(/^selecciono la operacion sumar$/) do
-  click_button('sumar')
+  select('Sumar', from: 'operacion')
 end
 
 Given(/^un primer operando que es (\d+)$/) do |op1|
@@ -27,7 +27,7 @@ end
 ########## Scenario: resta
 
 Given(/^selecciono la operacion restar$/) do
-  click_button('restar')
+  select('Restar', from: 'operacion')
 end
 
 When(/^resto el primero operando por el segundo$/) do
@@ -37,7 +37,7 @@ end
 ########## Scenario: promedio
 
 Given(/^selecciono la operacion promedio$/) do
-    click_button('promedio')
+  select('Promedio', from: 'operacion')
 end
 
 Given(/^un operando es (\d+)$/) do |op1|
@@ -51,45 +51,3 @@ end
 When(/^saco el promedio entre ellos$/) do
   click_button('calcular')
 end
-
-=begin
-require_relative '../../app/models/calculadora.rb'
-
-Given(/^un operando es (\d+)$/) do |op1|
-  @calculadora = Calculadora.new
-  @primer_operando = op1.to_i
-end
-
-Given(/^otro operando es (\d+)$/) do |op2|
-  @segundo_operando = op2.to_i
-end
-
-When(/^los sumo$/) do
-  @resultado = @calculadora.sumar(@primer_operando, @segundo_operando)
-end
-
-Then(/^el resultado es (\d+)$/) do |res|
-  expect(@resultado).to eq res.to_i
-end
-
-#############################################################################
-
-Given(/^un primer operando que es (\d+)$/) do |op1|
-  @calculadora = Calculadora.new
-  @primer_operando = op1.to_i
-end
-
-Given(/^un segundo operando que es (\d+)$/) do |op2|
-  @segundo_operando = op2.to_i
-end
-
-When(/^resto el primero operando por el segundo$/) do
-  @resultado = @calculadora.restar(@primer_operando, @segundo_operando)
-end
-
-#############################################################################
-
-When(/^saco el promedio entre ellos$/) do
-  @resultado = @calculadora.promedio(6,8)
-end
-=end

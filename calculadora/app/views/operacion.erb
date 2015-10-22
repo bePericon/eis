@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+      <title> Calculadora </title>
+  </head>
+  <body>
+    <form method="POST" action="/">
+      <%= csrf_token_field %>
+      <label>Primer operando:</label><input id="primer_operando" type="text" name="primer_operando">
+      <label>Segundo operando:</label><input id="segundo_operando" type="text" name="segundo_operando">
+
+      <select id= "operacion" name= "operacion" >
+        <option value="sumar">Sumar</option>
+        <option value="restar">Restar</option>
+        <option value="promedio">Promedio</option>  
+        <option value="dividir">Dividir</option>
+        <option value="multiplicar">Multiplicar</option>
+      </select>
+      <input type="submit" value="Calcular" id="calcular"/>
+    </form>
+
+    Resultado es:  <%= @resultado %> </br>
+
+    Cantidad de operaciones realizadas: <%= @operaciones_realizadas %> </br>
+      <form method="GET" action="resetear">
+        <!--<%= csrf_token_field %>-->
+        <input type="submit" value="Resetear memoria" id="resetear"/>
+      </form>
+  </body>
+</html>
