@@ -29,7 +29,6 @@ describe 'BatallaNaval' do
     expect(batallaNaval.posicion_ocupada('b3')).to eq true
   end
 
-
   it 'Tratar de poner barco en posicion ocupada, no poder hacerlo' do
     barco = batallaNaval.elegir_barco('crucero')
     resultado_crucero= batallaNaval.poner_barco(barco, 'a3', 'horizontal')
@@ -44,6 +43,20 @@ describe 'BatallaNaval' do
     expect(resultado_destructor).to eq 'Posicion ocupada!'
     expect(batallaNaval.posicion_ocupada('b4')).to eq false
     expect(batallaNaval.posicion_ocupada('b5')).to eq false
+  end
+
+  it 'Poner el barco una posicion que caiga fuera del tablero' do
+    barco = batallaNaval.elegir_barco('destructor')
+
+    resultado = batallaNaval.poner_barco(barco, 'k2', 'horizontal')
+    expect(resultado).to eq 'Posicion FUERA DE TABLERO!'
+  end
+
+  it 'Poner el barco  una posicion dentro del tablero, pero que el resto caigan fuera del tablero' do
+    barco = batallaNaval.elegir_barco('destructor')
+
+    resultado = batallaNaval.poner_barco(barco, 'e1', 'horizontal')
+    expect(resultado).to eq 'Posicion FUERA DE TABLERO!'
   end
 
   ########################################################################################
@@ -82,6 +95,42 @@ describe 'BatallaNaval' do
     batallaNaval.guardar_tablero_enemigo(batallaNaval_oponente.tablero)
 
     batallaNaval.elegir_donde_disparar('b4')
+
+    expect(batallaNaval.disparar).to eq 'KATAPUM! Has hundido un barco!'
+  end
+
+  it 'Hundir un barco crucero completo' do
+    batallaNaval_oponente = BatallaNaval.new
+    barco_oponente = batallaNaval_oponente.elegir_barco('crucero')
+    batallaNaval_oponente.poner_barco(barco_oponente, 'b1', 'vertical')
+
+    batallaNaval.guardar_tablero_enemigo(batallaNaval_oponente.tablero)
+
+    batallaNaval.elegir_donde_disparar('b1')
+
+    expect(batallaNaval.disparar).to eq 'PUM! Has dado en el blanco!'
+
+    batallaNaval.elegir_donde_disparar('b2')
+
+    expect(batallaNaval.disparar).to eq 'KATAPUM! Has hundido un barco!'
+  end
+
+  it 'Hundir un barco destructor completo' do
+    batallaNaval_oponente = BatallaNaval.new
+    barco_oponente = batallaNaval_oponente.elegir_barco('destructor')
+    batallaNaval_oponente.poner_barco(barco_oponente, 'b1', 'vertical')
+
+    batallaNaval.guardar_tablero_enemigo(batallaNaval_oponente.tablero)
+
+    batallaNaval.elegir_donde_disparar('b1')
+
+    expect(batallaNaval.disparar).to eq 'PUM! Has dado en el blanco!'
+
+    batallaNaval.elegir_donde_disparar('b2')
+
+    expect(batallaNaval.disparar).to eq 'PUM! Has dado en el blanco!'
+
+    batallaNaval.elegir_donde_disparar('b3')
 
     expect(batallaNaval.disparar).to eq 'KATAPUM! Has hundido un barco!'
   end
