@@ -1,6 +1,6 @@
 # Que cosas deberia saber cada programador
  
----
+-------------------
 
 
 #[10 Articulos ques todo programado deberia leer](http://www.javacodegeeks.com/2014/05/10-articles-every-programmer-must-read.html)
