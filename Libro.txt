@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+Título: 
+Construcción de Software: una mirada agil
+-------------------------------------------------------------------------------
+Autores:    
+- Nicolás Paez
+- Diego Fontdevila
+- Pablo Suárez
+- Carlos Fontela
+- Marcio Degiovannini
+- Alejandro Molinari
+-------------------------------------------------------------------------------
+Publicación: 
+1ª Edición (Sáenz Peña: Universidad Nacional de Tres de Febrero)
+Septiembre 2014.
+-------------------------------------------------------------------------------
+Reseña:
+Es un libro en donde se explican las prácticas agiles en desarrollo y gestión de proyectos, en el cual los autores relatan y dan a conocer situaciones las cuales vivieron implementando estas prácticas. Un recorrido por el día a día de un programador "agilizado". Desde el vamos, la metodologia agil en si, pasando por desarrollo, pruebas, comunicacion en el equipo, hasta la entrega del producto, entre mas temas, son abordados de manera acertada y de facil entendimiento.
+-------------------------------------------------------------------------------
